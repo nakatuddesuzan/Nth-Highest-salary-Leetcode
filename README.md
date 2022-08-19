@@ -57,10 +57,12 @@ Output:
 ```sql
 CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
 BEGIN
+DECLARE M INT;
+SET M = N-1;
   RETURN (
-      SELECT nth_value(salary, N) OVER()
-      FROM employee
-      LIMIT N,1  #Select records from Nth position and only take 1 
+      SELECT nth_value(salary, N) OVER(ORDER BY SALARY DESC)
+      FROM (SELECT DISTINCT Salary FROM employee) as first_table
+      LIMIT M,1
       
   );
 END
