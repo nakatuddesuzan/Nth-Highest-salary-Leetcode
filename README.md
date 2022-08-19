@@ -60,7 +60,7 @@ BEGIN
   RETURN (
       SELECT nth_value(salary, N) OVER()
       FROM employee
-      LIMIT 1
+      LIMIT N,1  #Select records from Nth position and only take 1 
       
   );
 END
