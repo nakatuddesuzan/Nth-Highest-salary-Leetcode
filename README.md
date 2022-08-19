@@ -58,9 +58,7 @@ Output:
 CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
 BEGIN
   RETURN (
-      SELECT nth_value(salary, N) 
-      OVER(Order by salary desc range between unbounded preceding and unbounded following
-       )
+      SELECT nth_value(salary, N) OVER()
       FROM employee
       LIMIT 1
       
