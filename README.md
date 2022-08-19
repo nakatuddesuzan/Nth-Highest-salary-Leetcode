@@ -54,7 +54,7 @@ Output:
 
 
 ### MYSQL Solution
-```
+```sql
 CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
 BEGIN
   RETURN (
